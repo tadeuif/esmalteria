@@ -6,3 +6,9 @@ def index(request):
         'title': 'LOGIN ESMALTERIA'
     }
     return render(request, "login.html", context)
+
+def home(request):
+    context = {
+        'title': 'BEM VINDO'
+    }
+    return render(request, "home.html", context)
