@@ -26,11 +26,12 @@ SECRET_KEY = 'ys$@jgq&)7n4*fq_%y9zxtb7t625p-!d^b8^zjmo&!!%z6era7'
 DEBUG = True
 
 ALLOWED_HOSTS = [
+                'esmalteria.herokuapp.com',
                 'localhost:8000',
                 'localhost',
                 '127.0.0.1:8000',
-                '127.0.0.1',
-                'esmalteria.herokuapp.com'
+                '127.0.0.1'
+                
 ]
 
 
