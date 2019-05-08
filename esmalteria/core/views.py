@@ -12,3 +12,9 @@ def home(request):
         'title': 'BEM VINDO'
     }
     return render(request, "home.html", context)
+
+def teste(request):
+    context = {
+        'title': 'TESTE'
+    }
+    return render(request,"teste.html", context)
