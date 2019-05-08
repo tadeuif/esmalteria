@@ -1,2 +1,2 @@
-web: gunicorn esmalteria.esmalteria.wsgi --log-file -
+web: gunicorn esmalteria.wsgi --log-file -
 log.Fatal(http.ListenAndServe(":" + os.Getenv("PORT"), router))
