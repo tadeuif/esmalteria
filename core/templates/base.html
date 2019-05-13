@@ -1,25 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <title>{% block title %}Login-Luluzinha Esmalteria{% endblock %}</title>
-  <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="style.css">
+    {% load static %}
+    {% block head %}
+    <title>{{ title | upper }}</title>
+    <meta charset="utf-8">
+    {% endblock head %}
+
+    {% block css %}
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    {% endblock css %}
 </head>
 <body>
   <main>
     {% block content %}
-      <h1 class="logo1">Luluzinha</h1>
-      <h4 class="logo2">ESMALTERIA</h4>
-
-      <div>
-        <div class="texto">
-            <h1>Login</h1>
-            <h3>Entre com seus dados para acessar o sistema</h3>
-            
-
-        </div>
-    {% endblock %}
+      
+    {% endblock content%}
   </main>
 </body>
 </html>

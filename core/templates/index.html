@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Login-Luluzinha Esmalteria</title>
+    {% load static %}
+    {% block head %}
+    <title>{{ title | upper }}</title>
+    {% endblock head %}
     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
