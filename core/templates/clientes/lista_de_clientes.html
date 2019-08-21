@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+<div class="text-center">
+<h1 class="text-warning">Cadastro de Clientes</h1>
+</div>
+<table class="table table-head">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>CPF</th>
+            <th>Data de Criação</th>
+            {% if user.is_authenticated %}
+            <th>Opções</th>
+            <th></th>
+            {% endif %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for cliente in clientes %}
+        <tr>
+            <td>{{ cliente.nome }}</td>
+            <td>{{ cliente.email }}</td>
+            <td>{{ cliente.cpf }}</td>
+            <td>{{ cliente.data_criacao }}</td>
+            {% if user.is_authenticated %}
+            <td><a href="/editar_cliente/{{ cliente.id }}" class="btn btn-warning">Editar</a></td>
+            <td><a href="/remover_cliente/{{ cliente.id }}" class="btn btn-danger">Excluir</a></td>
+            {% endif %}
+
+        </tr>
+        {% endfor %}
+    
+    </tbody>
+
+</table>
+{{ clientes }}
+</div>
+{% endblock content %}

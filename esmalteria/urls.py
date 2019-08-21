@@ -24,4 +24,5 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     #path('', index, name="login"),
     path('', TemplateView.as_view(template_name='home.html'), name='home'),
+    path('',include('clientes.urls')), #ENDEREÇAR O PATH PARA LINK CLIENTES
 ]
