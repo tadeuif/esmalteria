@@ -12,6 +12,7 @@
             <th>Nome</th>
             <th>Email</th>
             <th>CPF</th>
+            <th>Redes Sociais</th>
             <th>Data de Criação</th>
             {% if user.is_authenticated %}
             <th>Opções</th>
@@ -25,6 +26,7 @@
             <td>{{ cliente.nome }}</td>
             <td>{{ cliente.email }}</td>
             <td>{{ cliente.cpf }}</td>
+            <td>{{ cliente.redes }}</td>
             <td>{{ cliente.data_criacao }}</td>
             {% if user.is_authenticated %}
             <td><a href="clientes/editar_cliente/{{ cliente.id }}" class="btn btn-warning">Editar</a></td>

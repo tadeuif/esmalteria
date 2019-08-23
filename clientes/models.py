@@ -5,7 +5,9 @@ class Cliente(models.Model):
     nome = models.CharField(max_length=250)
     email = models.EmailField()
     cpf = models.CharField(max_length=14,unique=True)
+    redes = models.CharField(max_length=80)
     data_criacao = models.DateField(auto_now_add=True)
+
 
 
     def __str__(self):
