@@ -12,6 +12,7 @@
             <th>Nome</th>
             <th>Email</th>
             <th>CPF</th>
+            <th>Celular</th>
             <th>Redes Sociais</th>
             <th>Data de Criação</th>
             {% if user.is_authenticated %}
@@ -26,6 +27,7 @@
             <td>{{ cliente.nome }}</td>
             <td>{{ cliente.email }}</td>
             <td>{{ cliente.cpf }}</td>
+            <td>{{ cliente.celular }}</td>
             <td>{{ cliente.redes }}</td>
             <td>{{ cliente.data_criacao }}</td>
             {% if user.is_authenticated %}
