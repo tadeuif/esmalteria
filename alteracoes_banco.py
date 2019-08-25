@@ -1,9 +1,9 @@
 import sqlite3
 
 # conectando...
-conn = sqlite3.connect('db.sqlite3')
-# definindo um cursor
-cursor = conn.cursor()
+#conn = sqlite3.connect('db.sqlite3')
+## definindo um cursor
+#cursor = conn.cursor()
 
 # criando a tabela (schema)
 '''cursor.execute("""
@@ -20,15 +20,15 @@ CREATE TABLE clientes (
 );
 """)'''
 
-print('Tabela criada com sucesso.')
+#print('Tabela criada com sucesso.')
 
 # desconectando...
-conn.close()
+#conn.close()
 
 #terminal sqlite3 db.sqlite3.db 'PRAGMA table_info(db.sqlite3)'
 
 #SELECIONANDO ITENS DA TABELA
-
+'''
 conn = sqlite3.connect('db.sqlite3')
 cursor = conn.cursor()
 
@@ -41,7 +41,7 @@ for linha in cursor.fetchall():
     print(linha)
 
 conn.close()
-
+'''
 
 #ALTERANDO TABELA
 
@@ -49,12 +49,12 @@ conn = sqlite3.connect('db.sqlite3')
 cursor = conn.cursor()
 
 # lendo os dados
-'''cursor.execute("""
-ALTER TABLE clientes_cliente ADD celular INTEGER(15);
+cursor.execute("""
+ALTER TABLE clientes_cliente ADD dt_nascimento DATE;
 """)
 
-conn.close()'''
-
+conn.close()
+'''
 #VENDO AS COLUNAS
 
 conn = sqlite3.connect('db.sqlite3')
@@ -64,3 +64,4 @@ colnames = cursor.description
 for row in colnames:
     print(row[0])
 conn.close()
+'''
