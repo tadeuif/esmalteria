@@ -12,6 +12,8 @@
   <p><a href="{% url 'logout' %}">logout</a></p>
   <p><a href="{% url 'lista_de_clientes' %}">Clientes</a><!--ESSA É A IDEIA!--></p> 
   <p><a href="{% url 'cadastrar_usuario' %}">Cadastrar usuário</a></p>
+  <p><a href="{% url 'lista_de_produtos' %}">Produtos</a></p>
+  <p><a href="{% url 'lista_de_servicos' %}">Serviços</a></p>
 {% else %}
   <p>You are not logged in</p>
   <a href="{% url 'login' %}">login</a>

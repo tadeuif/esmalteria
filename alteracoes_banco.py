@@ -1,29 +1,29 @@
 import sqlite3
 
 # conectando...
-#conn = sqlite3.connect('db.sqlite3')
+conn = sqlite3.connect('db.sqlite3')
 ## definindo um cursor
-#cursor = conn.cursor()
+cursor = conn.cursor()
 
 # criando a tabela (schema)
-'''cursor.execute("""
-CREATE TABLE clientes (
-        id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-        nome TEXT NOT NULL,
-        idade INTEGER,
-        cpf     VARCHAR(11) NOT NULL,
-        email TEXT NOT NULL,
-        fone TEXT,
-        cidade TEXT,
-        uf VARCHAR(2) NOT NULL,
-        criado_em DATE NOT NULL
+cursor.execute("""
+CREATE TABLE servicos (
+        id                      INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+        nome                    TEXT NOT NULL,
+        tipo                    TEXT NOT NULL,
+        descricao               TEXT NOT NULL,
+        preco                   FLOAT NOT NULL,
+        produto                 TEXT NOT NULL,
+        disponibilidade         BIT NOT NULL,
+        tm_execucao             TIME NOT NULL,
+        pco_venda               FLOAT NOT NULL
 );
-""")'''
+""")
 
-#print('Tabela criada com sucesso.')
+print('Tabela criada com sucesso.')
 
 # desconectando...
-#conn.close()
+conn.close()
 
 #terminal sqlite3 db.sqlite3.db 'PRAGMA table_info(db.sqlite3)'
 
@@ -44,7 +44,7 @@ conn.close()
 '''
 
 #ALTERANDO TABELA
-
+'''
 conn = sqlite3.connect('db.sqlite3')
 cursor = conn.cursor()
 
@@ -52,9 +52,10 @@ cursor = conn.cursor()
 cursor.execute("""
 ALTER TABLE clientes_cliente ADD dt_nascimento DATE;
 """)
-
-conn.close()
 '''
+'''
+conn.close()
+
 #VENDO AS COLUNAS
 
 conn = sqlite3.connect('db.sqlite3')

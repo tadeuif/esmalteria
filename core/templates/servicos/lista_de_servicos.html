@@ -1,0 +1,49 @@
+{% extends 'baseServico.html' %}
+
+{% block content %}
+
+<div class="container">
+<div class="text-center">
+<h1 class="text-warning">Cadastro de Servico</h1>
+</div>
+<table class="table table-head">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Tipo</th>
+            <th>Descricao</th>
+            <th>Preco</th>
+            <th>Produto</th>
+            <th>Disponibilidade </th>
+            <th>Tempo de execucao</th>
+            {% if user.is_authenticated %}
+            <th>Opções</th>
+            <th></th>
+            {% endif %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for servico in servicos %}
+        <tr>
+            <td>{{ servico.nome }}</td>
+            <td>{{ servico.tipo }}</td>
+            <td>{{ servico.descricao }}</td>
+            <td>{{ servico.preco }}</td>
+            <td>{{ servico.servico }}</td>
+            <td>{{ servico.disponibilidade }}</td>
+            <td>{{ servico.tm_execucao }}</td>
+
+            {% if user.is_authenticated %}
+            <td><a href="servicos/editar_servico/{{ servico.id }}" class="btn btn-warning">Editar</a></td>
+            <td><a href="servicos/remover_servico/{{ servico.id }}" class="btn btn-danger">Excluir</a></td>
+            {% endif %}
+
+        </tr>
+        {% endfor %}
+    
+    </tbody>
+
+</table>
+{{ servicos }}
+</div>
+{% endblock content %}

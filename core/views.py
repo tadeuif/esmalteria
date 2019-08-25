@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
 from django.http import HttpResponse
+from django.urls import reverse
+
 
 def index(request):
     context = {
@@ -22,3 +24,4 @@ def teste(request):
 
 def login_redirect(request):
     return redirect('/accounts/login/')
+    

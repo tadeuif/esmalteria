@@ -19,6 +19,10 @@ from django.urls import path, include
 from django.conf.urls import url
 from django.views.generic.base import TemplateView
 from core.views import login_redirect
+from produtos import views
+from clientes import views
+from usuarios import views
+from servicos import views
 
 urlpatterns = [
     url(r'^$', login_redirect, name='login_redirect'),
@@ -28,4 +32,6 @@ urlpatterns = [
     path('home/', TemplateView.as_view(template_name='home.html'), name='home'),
     path('clientes/',include('clientes.urls')), #ENDEREÇAR O PATH PARA LINK CLIENTES
     path('usuarios/',include('usuarios.urls')),
+    path('produtos/', include('produtos.urls')),
+    path('servicos/', include('servicos.urls'))
 ]
