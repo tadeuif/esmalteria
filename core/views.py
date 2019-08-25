@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.shortcuts import redirect
 from django.http import HttpResponse
 
 def index(request):
@@ -18,3 +19,6 @@ def teste(request):
         'title': 'TESTE'
     }
     return render(request,"teste.html", context)
+
+def login_redirect(request):
+    return redirect('/accounts/login/')

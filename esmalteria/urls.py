@@ -18,11 +18,14 @@ from django.urls import path, include
 #from core.views import *
 from django.conf.urls import url
 from django.views.generic.base import TemplateView
+from core.views import login_redirect
 
 urlpatterns = [
+    url(r'^$', login_redirect, name='login_redirect'),
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
     #path('', index, name="login"),
-    path('', TemplateView.as_view(template_name='home.html'), name='home'),
+    path('home/', TemplateView.as_view(template_name='home.html'), name='home'),
     path('clientes/',include('clientes.urls')), #ENDEREÇAR O PATH PARA LINK CLIENTES
+    path('usuarios/',include('usuarios.urls')),
 ]
