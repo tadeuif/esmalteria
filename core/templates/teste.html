@@ -1,1 +1,35 @@
-<h1>TESTE</h1>
+{% extends 'base.html' %}
+
+{% block body %}
+
+{% if user.is_authenticated %}
+
+  Hi {{ user.username }}!
+  
+
+  {% block content %}
+  <div id= "sidebar">
+    <div class="toggle-btn" onclick="toggleSidebar()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <ul>
+      <li><a href="{% url 'cadastrar_usuario' %}">Cadastrar Usuário</a></li>
+      <li><a href="{% url 'lista_de_clientes' %}">Cadastrar Clientes</a></li> 
+      <li><a href="{% url 'lista_de_produtos' %}">Cadastrar Produtos</a></li>
+      <li><a href="{% url 'lista_de_servicos' %}">Cadastrar Serviços</a></li>
+      <li>Relatórios</li>
+      <li>Backup</li>
+      <li>Sistema</li>
+      <li><a href="{% url 'logout' %}">Sair</a></li> 
+    </ul>
+</div>
+  {% endblock content%}
+
+  {% endif %}
+
+  {% else %}
+  <p>You are not logged in</p>
+  <a href="{% url 'login' %}">login</a>
+{% endblock body %}  
