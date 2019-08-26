@@ -19,6 +19,7 @@ from django.urls import path, include
 from django.conf.urls import url
 from django.views.generic.base import TemplateView
 from core.views import login_redirect
+from usuarios.views import cadastrar, cadastrar_usuario
 
 urlpatterns = [
     url(r'^$', login_redirect, name='login_redirect'),
@@ -28,4 +29,5 @@ urlpatterns = [
     path('home/', TemplateView.as_view(template_name='home.html'), name='home'),
     path('clientes/',include('clientes.urls')), #ENDEREÇAR O PATH PARA LINK CLIENTES
     path('usuarios/',include('usuarios.urls')),
+    path('usuarios/cadastrar_usuario',cadastrar_usuario,name='cadastrar_usuario'),
 ]

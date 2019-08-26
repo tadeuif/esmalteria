@@ -1,23 +1,29 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from usuarios.forms import RegistrationForm
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib import messages
 
 def cadastrar(request):
-    return render(request, "usuarios/cadastrar_usuario.html")
+    return render(request, 'usuarios/cadastrar_usuario.html')
 
 def cadastrar_usuario(request):
-    if request.method == 'POST':
-        form = RegistrationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            messages.success(request,"Usuário adicionado com sucesso")
-            return redirect('cadastrar_usuario')
-        
-        else:
-            form = RegistrationForm()
+    if not request.method == 'POST':
+        form = RegistrationForm()
+        context = {'form': form}
+        return render(request, 'usuarios/cadastrar_usuario.html', context)
 
-            args = {'form': form}
-            return render(request, 'cadastrar_usuario.html', args)
+    form = RegistrationForm(request.POST)
+
+    if form.is_valid():
+        form = RegistrationForm(request.POST)
+        form.save()
+        #context = {'form': form}
+        messages.success(request,"Usuário adicionado com sucesso")
+        return HttpResponseRedirect('cadastrar_usuario', {'form': form})
+
+    return render(request, 'usuarios/cadastrar_usuario.html', {'form': form}) #TESTE        
+   
+        
 
 
