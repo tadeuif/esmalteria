@@ -10,8 +10,10 @@
     <thead>
         <tr>
             <th>Nome</th>
+            <th>Sobrenome</th>
             <th>Email</th>
             <th>CPF</th>
+            <th>Data de Nascimento</th>
             <th>Celular</th>
             <th>Redes Sociais</th>
             <th>Data de Criação</th>
@@ -25,8 +27,10 @@
         {% for cliente in clientes %}
         <tr>
             <td>{{ cliente.nome }}</td>
+            <td>{{ cliente.sobrenome }}</td>
             <td>{{ cliente.email }}</td>
             <td>{{ cliente.cpf }}</td>
+            <td>{{ cliente.dt_nascimento }}</td>
             <td>{{ cliente.celular }}</td>
             <td>{{ cliente.redes }}</td>
             <td>{{ cliente.data_criacao }}</td>

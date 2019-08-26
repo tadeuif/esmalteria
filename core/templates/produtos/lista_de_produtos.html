@@ -1,0 +1,52 @@
+{% extends 'base3.html' %}
+
+{% block content %}
+
+<div class="container">
+<div class="text-center">
+<h1 class="text-warning">Cadastro de Produtos</h1>
+</div>
+<table class="table table-head">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Tipo</th>
+            <th>Marca</th>
+            <th>Cor</th>
+            <th>Quantidade disponível</th>
+            <th>Quantidade mínima disponível</th>
+            <th>Preço de custo</th>
+            <th>Preço de venda</th>
+            <th>Data da última compra</th>
+            {% if user.is_authenticated %}
+            <th>Opções</th>
+            <th></th>
+            {% endif %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for produto in produtos %}
+        <tr>
+            <td>{{ produto.nome }}</td>
+            <td>{{ produto.tipo }}</td>
+            <td>{{ produto.marca }}</td>
+            <td>{{ produto.cor }}</td>
+            <td>{{ produto.qtd_disponivel }}</td>
+            <td>{{ produto.qtd_min_disponivel }}</td>
+            <td>{{ produto.pco_custo }}</td>
+            <td>{{ produto.pco_venda }}</td>
+            <td>{{ produto.dt_ultima_compra }}</td>
+            {% if user.is_authenticated %}
+            <td><a href="produtos/editar_produto/{{ produto.id }}" class="btn btn-warning">Editar</a></td>
+            <td><a href="produtos/remover_produto/{{ produto.id }}" class="btn btn-danger">Excluir</a></td>
+            {% endif %}
+
+        </tr>
+        {% endfor %}
+    
+    </tbody>
+
+</table>
+{{ produtos }}
+</div>
+{% endblock content %}

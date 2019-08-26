@@ -9,9 +9,24 @@
   {% endblock logo %}
 {% if user.is_authenticated %}
   Hi {{ user.username }}!
-  <p><a href="{% url 'logout' %}">logout</a></p>
-  <p><a href="{% url 'lista_de_clientes' %}">Clientes</a><!--ESSA É A IDEIA!--></p> 
-  <p><a href="{% url 'cadastrar_usuario' %}">Cadastrar usuário</a></p>
+
+
+  
+
+  <div id= "sidebar">
+        <div class="toggle-btn" onclick="toggleSidebar()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+  
+
+  <h4 class="menuinit"><a href="{% url 'logout' %}">LOGOUT</a></h4>
+  <h3 class="menuinit"><a href="{% url 'cadastrar_usuario' %}">Cadastrar Usuário</a></h3>
+  <h3 class="menuinit"><a href="{% url 'lista_de_clientes' %}">Clientes</a></h3> 
+  <h3 class="menuinit"><a href="{% url 'lista_de_produtos' %}">Produtos</a></h3>
+  <h3 class="menuinit"><a href="{% url 'lista_de_servicos' %}">Serviços</a></h3>
+ 
 {% else %}
   <p>You are not logged in</p>
   <a href="{% url 'login' %}">login</a>

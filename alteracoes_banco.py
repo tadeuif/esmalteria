@@ -2,23 +2,23 @@ import sqlite3
 
 # conectando...
 conn = sqlite3.connect('db.sqlite3')
-# definindo um cursor
+## definindo um cursor
 cursor = conn.cursor()
 
 # criando a tabela (schema)
-'''cursor.execute("""
-CREATE TABLE clientes (
-        id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-        nome TEXT NOT NULL,
-        idade INTEGER,
-        cpf     VARCHAR(11) NOT NULL,
-        email TEXT NOT NULL,
-        fone TEXT,
-        cidade TEXT,
-        uf VARCHAR(2) NOT NULL,
-        criado_em DATE NOT NULL
+cursor.execute("""
+CREATE TABLE servicos (
+        id                      INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+        nome                    TEXT NOT NULL,
+        tipo                    TEXT NOT NULL,
+        descricao               TEXT NOT NULL,
+        preco                   FLOAT NOT NULL,
+        produto                 TEXT NOT NULL,
+        disponibilidade         BIT NOT NULL,
+        tm_execucao             TIME NOT NULL,
+        pco_venda               FLOAT NOT NULL
 );
-""")'''
+""")
 
 print('Tabela criada com sucesso.')
 
@@ -28,7 +28,7 @@ conn.close()
 #terminal sqlite3 db.sqlite3.db 'PRAGMA table_info(db.sqlite3)'
 
 #SELECIONANDO ITENS DA TABELA
-
+'''
 conn = sqlite3.connect('db.sqlite3')
 cursor = conn.cursor()
 
@@ -41,19 +41,20 @@ for linha in cursor.fetchall():
     print(linha)
 
 conn.close()
-
+'''
 
 #ALTERANDO TABELA
-
+'''
 conn = sqlite3.connect('db.sqlite3')
 cursor = conn.cursor()
 
 # lendo os dados
-'''cursor.execute("""
-ALTER TABLE clientes_cliente ADD celular INTEGER(15);
+cursor.execute("""
+ALTER TABLE clientes_cliente ADD dt_nascimento DATE;
 """)
-
-conn.close()'''
+'''
+'''
+conn.close()
 
 #VENDO AS COLUNAS
 
@@ -64,3 +65,4 @@ colnames = cursor.description
 for row in colnames:
     print(row[0])
 conn.close()
+'''
