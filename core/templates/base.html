@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+  {% load bootstrap4 %}
   {% load static %}
   {% block logo %}
     <h1 class="logo1">Luluzinha</h1>
@@ -15,12 +16,12 @@
       <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}"/>
       {% endblock css %}
 
-      {% block js %}
-      <script language="javascript" src="{% static 'js/home.js' %}"></script> <!--Algo errado aqui!-->
-      {% endblock js %}
+      
   {% endblock head %}
   </head>
-
+      {% block js %}
+      <script language="javascript" src="{% static 'home.js' %}"></script> <!--Algo errado aqui!-->
+      {% endblock js %}
   <body>
   {% block body %}
   
