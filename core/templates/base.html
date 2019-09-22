@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html>
+  {% block head %}
   <head>
   {% load static %}
+  
   {% block logo %}
     <h1 class="logo1">Luluzinha</h1>
     <h4 class="logo2">ESMALTERIA</h4>
   {% endblock logo %}
-  {% block head %}
+  
       <title>{{ title | upper }}</title>
       <meta charset="utf-8">
     
@@ -15,17 +17,19 @@
       <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}"/>
       {% endblock css %}
 
-      {% block js %}
-      <script language="javascript" src="{% static 'js/home.js' %}"></script>
-      {% endblock js %}
-  {% endblock head %}
   </head>
-
-  <body>
+  {% endblock head %}
+  
   {% block body %}
+  <body>
+  
     {% block content %}
       
     {% endblock content%}
-  {% endblock body %}  
+    {% block script %}
+    <script language="javascript" src="{% static 'js/home.js' %}" type="text/javascript"></script>
+    
+    {% endblock script %}
   </body>
+  {% endblock body %} 
 </html>
