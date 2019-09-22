@@ -20,15 +20,15 @@
         </tr>
     </thead>
     <tbody>
-        {% for agenda in Agendamento %}
+        {% for agendamento in agendamento %}
         <tr>
-            <td>{{ agenda.nome }}</td>
-            <td>{{ agenda.dt_agendamento }}</td>
-            <td>{{ agenda.hora_agendamento }}</td>
-            <td>{{ agenda.servico_prestado }}</td>
+            <td>{{ agendamento.nome }}</td>
+            <td>{{ agendamento.dt_agendamento }}</td>
+            <td>{{ agendamento.hora_agendamento }}</td>
+            <td>{{ agendamento.servico_prestado }}</td>
             {% if user.is_authenticated %}
-            <td><a href="agenda/editar_agendamento/{{ agenda.id }}" class="btn btn-warning">Editar</a></td>
-            <td><a href="agenda/remover_agendamento/{{ agenda.id }}" class="btn btn-danger">Excluir</a></td>
+            <td><a href="agenda/editar_agendamento/{{ agendamento.id }}" class="btn btn-warning">Editar</a></td>
+            <td><a href="agenda/remover_agendamento/{{ agendamento.id }}" class="btn btn-danger">Excluir</a></td>
             {% endif %}
 
         </tr>

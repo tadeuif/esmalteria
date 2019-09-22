@@ -5,7 +5,7 @@ from django.contrib import messages
 
 def lista_de_agendamento(request):
     agendamento = Agendamento.objects.all().order_by('-id')
-    return render(request,"agenda/lista_de_agendamento.html",{'agendamento':Agendamento})
+    return render(request,"agenda/lista_de_agendamento.html",{'agendamento':agendamento})
 
 def adicionar_agendamento(request):
     form = AgendamentoForm(request.POST)
@@ -14,7 +14,7 @@ def adicionar_agendamento(request):
         obj.save()
         form = AgendamentoForm()
         messages.success(request,"Agendado com sucesso")
-        return redirect('lista_de_agendamentos')
+        return redirect('lista_de_agendamento')
 
     return render(request,"agenda/adicionar_agendamento.html",{'form':form})
 
@@ -25,7 +25,7 @@ def editar_agendamento(request,id=None):
         obj = form.save()
         obj.save()
         messages.info(request,"Agendamento editado com sucesso")
-        return redirect('lista_de_agendamentos')
+        return redirect('lista_de_agendamento')
         
     return render(request,"agenda/editar_agendamento.html",{'form':form})
 
@@ -34,6 +34,6 @@ def remover_agendamento(request,id=None):
     if request.method == "POST":
         agendamento.delete()
         messages.warning(request,"Agendamento removido com sucesso")
-        return redirect('lista_de_agendamentos')
+        return redirect('lista_de_agendamento')
 
-    return render(request,"agenda/remover_agendamento.html",{'agendamento':Agendamento})
+    return render(request,"agenda/remover_agendamento.html",{'agendamento':agendamento})
