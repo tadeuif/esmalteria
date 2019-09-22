@@ -8,25 +8,16 @@
     <h4 class="logo2">ESMALTERIA</h4>
   {% endblock logo %}
 {% if user.is_authenticated %}
-  Hi {{ user.username }}!
 
+  <h2 class="logo1">Olá {{ user.username }}!</h2>
 
   
-
-  <div id= "sidebar">
-        <div class="toggle-btn" onclick="toggleSidebar()">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-  
-
-  <h4 class="menuinit"><a href="{% url 'logout' %}">LOGOUT</a></h4>
   <h3 class="menuinit"><a href="{% url 'cadastrar_usuario' %}">Cadastrar Usuário</a></h3>
   <h3 class="menuinit"><a href="{% url 'lista_de_clientes' %}">Clientes</a></h3> 
   <h3 class="menuinit"><a href="{% url 'lista_de_produtos' %}">Produtos</a></h3>
   <h3 class="menuinit"><a href="{% url 'lista_de_servicos' %}">Serviços</a></h3>
- 
+  <h3 class="menuinit"><a href="{% url 'lista_de_agendamento' %}">Agendamento</a></h3>
+  <a class="logo1" href="{% url 'logout' %}">LOGOUT</a>
 {% else %}
   <p>You are not logged in</p>
   <a href="{% url 'login' %}">login</a>

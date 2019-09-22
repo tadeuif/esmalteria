@@ -23,6 +23,7 @@ from produtos import views
 from clientes import views
 from usuarios import views
 from servicos import views
+from agendamento import views
 
 urlpatterns = [
     url(r'^$', login_redirect, name='login_redirect'),
@@ -33,5 +34,6 @@ urlpatterns = [
     path('clientes/',include('clientes.urls')), #ENDEREÇAR O PATH PARA LINK CLIENTES
     path('usuarios/',include('usuarios.urls')),
     path('produtos/', include('produtos.urls')),
-    path('servicos/', include('servicos.urls'))
+    path('servicos/', include('servicos.urls')),
+    path('agendamento/', include('agendamento.urls'))
 ]
