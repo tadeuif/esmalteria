@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+{% if user.is_authenticated %}
+
+  Hi {{ user.username }}!
+  
+
+  {% block content %}
+  <div id= "sidebar">
+    <div class="toggle-btn" onclick="toggleSidebar()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <ul>
+      <li><a href="{% url 'cadastrar_usuario' %}">Cadastrar Usuário</a></li>
+      <li><a href="{% url 'lista_de_clientes' %}">Cadastrar Clientes</a></li> 
+      <li><a href="{% url 'lista_de_produtos' %}">Cadastrar Produtos</a></li>
+      <li><a href="{% url 'lista_de_servicos' %}">Cadastrar Serviços</a></li>
+      <li>Relatórios</li>
+      <li>Backup</li>
+      <li>Sistema</li>
+      <li><a href="{% url 'logout' %}">Sair</a></li> 
+    </ul>
+</div>
+  {% endblock content%}
+
+  {% endif %}
+
+  {% else %}
+  <p>You are not logged in</p>
+  <a href="{% url 'login' %}">login</a>
+{% endblock body %}  
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+  {% load bootstrap4 %}
+  {% load static %}
+  {% block logo %}
+    <h1 class="logo1">Luluzinha</h1>
+    <h4 class="logo2">ESMALTERIA</h4>
+  {% endblock logo %}
+  {% block head %}
+      <title>{{ title | upper }}</title>
+      <meta charset="utf-8">
+    
+      {% block css %}
+      <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet"/>
+      <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}"/>
+      {% endblock css %}
+
+      
+  {% endblock head %}
+  </head>
+      {% block js %}
+      <script language="javascript" src="{% static 'home.js' %}"></script> <!--Algo errado aqui!-->
+      {% endblock js %}
+  <body>
+  {% block body %}
+  
+  <div id= "sidebar">
+    <div class="toggle-btn" onclick="toggleSidebar()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+  
+    <ul>
+      <li><a href="{% url 'cadastrar_usuario' %}">Cadastrar Usuário</a></li>
+      <li><a href="{% url 'lista_de_clientes' %}">Cadastrar Clientes</a></li> 
+      <li><a href="{% url 'lista_de_produtos' %}">Cadastrar Produtos</a></li>
+      <li><a href="{% url 'lista_de_servicos' %}">Cadastrar Serviços</a></li>
+      <li>Relatórios</li>
+      <li>Backup</li>
+      <li>Sistema</li>
+      <li><a href="{% url 'logout' %}">Sair</a></li> 
+    </ul>
+</div>
+  {% endblock body %}  
+  </body>
+</html>
+
+
+{% extends 'base.html' %}
+
+{% block body %}
+  
+{% if user.is_authenticated %}
+  Hi {{ user.username }}!
+    
+{% else %}
+  <p>You are not logged in</p>
+  <a href="{% url 'login' %}">login</a>
+{% endif %}
+{% endblock body %}

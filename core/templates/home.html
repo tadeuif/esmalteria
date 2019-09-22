@@ -1,13 +1,9 @@
 {% extends 'base.html' %}
 
-{% block title %}Home{% endblock %}
-
 {% block content %}
-  {% block logo %}
-    <h1 class="logo1">Luluzinha</h1>
-    <h4 class="logo2">ESMALTERIA</h4>
-  {% endblock logo %}
+  
 {% if user.is_authenticated %}
+<<<<<<< HEAD
 
   <h2 class="logo1">Olá {{ user.username }}!</h2>
 
@@ -18,6 +14,28 @@
   <h3 class="menuinit"><a href="{% url 'lista_de_servicos' %}">Serviços</a></h3>
   <h3 class="menuinit"><a href="{% url 'lista_de_agendamento' %}">Agendamento</a></h3>
   <a class="logo1" href="{% url 'logout' %}">LOGOUT</a>
+=======
+  Hi {{ user.username }}!
+  
+  <div id= "sidebar">
+    <div class="toggle-btn" onclick="toggleSidebar()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <ul>
+      <li><a href="{% url 'cadastrar_usuario' %}">Cadastrar Usuário</a></li>
+      <li><a href="{% url 'lista_de_clientes' %}">Cadastrar Clientes</a></li> 
+      <li><a href="{% url 'lista_de_produtos' %}">Cadastrar Produtos</a></li>
+      <li><a href="{% url 'lista_de_servicos' %}">Cadastrar Serviços</a></li>
+      <li>Relatórios</li>
+      <li>Backup</li>
+      <li>Sistema</li>
+      <li><a href="{% url 'logout' %}">Sair</a></li> 
+    </ul>
+</div>
+  
+>>>>>>> a0a1015b83f1d476832912b061afba07edf69c37
 {% else %}
   <p>You are not logged in</p>
   <a href="{% url 'login' %}">login</a>

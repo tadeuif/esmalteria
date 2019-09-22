@@ -13,18 +13,9 @@
 <body>
     <div class="p-4 mb-2 bg-warning text-white"><h2>Luluzinha Esmalteria</h2></div>
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark mb-3">
-       <a class="navbar-brand text-white">Produto</a> 
+       <a class="navbar-brand text-white">Serviço</a> 
        {% if user.is_authenticated %}
        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="{%url 'adicionar_servico' %}">Incluir</a>
-            </li>
-             <li class="nav-item">
-                <a class="nav-link" href="{%url 'lista_de_servicos' %}">Consulta</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{%url 'lista_de_servicos' %}">Mídias</a>
-            </li>
             <li class="nav-item">
                 <a class="nav-link" href="{%url 'home' %}">Voltar</a>
             </li>
