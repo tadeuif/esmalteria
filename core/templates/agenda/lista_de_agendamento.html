@@ -1,0 +1,42 @@
+{% extends 'baseAgendamento.html' %}
+
+{% block content %}
+
+<div class="container">
+<div class="text-center">
+<h1 class="text-warning">Agendamento</h1>
+</div>
+<table class="table table-head">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Data agendamento</th>
+            <th>Hora agendamento</th>
+            <th>Serviço prestado</th>
+            {% if user.is_authenticated %}
+            <th>Opções</th>
+            <th></th>
+            {% endif %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for agenda in Agendamento %}
+        <tr>
+            <td>{{ agenda.nome }}</td>
+            <td>{{ agenda.dt_agendamento }}</td>
+            <td>{{ agenda.hora_agendamento }}</td>
+            <td>{{ agenda.servico_prestado }}</td>
+            {% if user.is_authenticated %}
+            <td><a href="agenda/editar_agendamento/{{ agenda.id }}" class="btn btn-warning">Editar</a></td>
+            <td><a href="agenda/remover_agendamento/{{ agenda.id }}" class="btn btn-danger">Excluir</a></td>
+            {% endif %}
+
+        </tr>
+        {% endfor %}
+    
+    </tbody>
+
+</table>
+{{ agenda }}
+</div>
+{% endblock content %}
