@@ -6,7 +6,7 @@ conn = sqlite3.connect('db.sqlite3')
 cursor = conn.cursor()
 
 #DROPANDO TABELA
-cursor.execute("DROP TABLE agendamento")
+cursor.execute("DROP TABLE agendamento_agendamento")
 
 print('Tabela dropada com sucesso.')
 
