@@ -17,6 +17,12 @@
        {% if user.is_authenticated %}
        <ul class="navbar-nav">
             <li class="nav-item">
+                <a class="nav-link" href="{%url 'adicionar_servico' %}">Adicionar</a>
+                </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{%url 'lista_de_servicos' %}">Lista de serviços</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="{%url 'home' %}">Voltar</a>
             </li>
         </ul>
