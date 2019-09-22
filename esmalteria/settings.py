@@ -50,11 +50,8 @@ INSTALLED_APPS = [
     'usuarios',
     'produtos',
     'servicos',
-<<<<<<< HEAD
     'agendamento',
-=======
     'bootstrap4',
->>>>>>> a0a1015b83f1d476832912b061afba07edf69c37
 ]
 
 MIDDLEWARE = [
