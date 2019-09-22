@@ -6,7 +6,7 @@ conn = sqlite3.connect('db.sqlite3')
 cursor = conn.cursor()
 
 # criando a tabela (schema)
-cursor.execute("""
+cursor.execute(
 CREATE TABLE agendamento_agendamento (
         id  INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
         nome    TEXT NOT NULL,
@@ -14,7 +14,7 @@ CREATE TABLE agendamento_agendamento (
         hora_agendamento    TEXT NOT NULL,
         servico_prestado TEXT NOT NULL
 );
-""")
+)
 
 print('Tabela criada com sucesso.')
 
