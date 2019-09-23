@@ -1,0 +1,47 @@
+{% extends 'basePagamento.html' %}
+
+{% block content %}
+
+<div class="container">
+<div class="text-center">
+<h1 class="text-warning">Cadastro de Pagamento</h1>
+</div>
+<table class="table table-head">
+    <thead>
+        <tr>
+            <th>id_pagamento</th>
+            <th>cod_servico</th>
+            <th>cod_cliente</th>
+            <th>valor_pagamento</th>
+            <th>dt_pagamento</th>
+            <th>status </th>
+            {% if user.is_authenticated %}
+            <th>Opções</th>
+            <th></th>
+            {% endif %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for pagamento in pagamento %}
+        <tr>
+            <td>{{ pagamento.nome }}</td>
+            <td>{{ pagamento.cod_servico }}</td>
+            <td>{{ pagamento.cod_cliente }}</td>
+            <td>{{ pagamento.valor_pagamento }}</td>
+            <td>{{ pagamento.dt_pagamento }}</td>
+            <td>{{ pagamento.status }}</td>
+
+            {% if user.is_authenticated %}
+            <td><a href="pagamento/editar_pagamento/{{ pagamento.id }}" class="btn btn-warning">Editar</a></td>
+            <td><a href="pagamento/remover_pagamento/{{ pagamento.id }}" class="btn btn-danger">Excluir</a></td>
+            {% endif %}
+
+        </tr>
+        {% endfor %}
+    
+    </tbody>
+
+</table>
+{{ pagamento }}
+</div>
+{% endblock content %}

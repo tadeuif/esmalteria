@@ -25,6 +25,8 @@ from clientes import views
 from usuarios import views
 from servicos import views
 from agendamento import views
+from pagamento import views
+
 
 urlpatterns = [
     url(r'^$', login_redirect, name='login_redirect'),
@@ -37,5 +39,6 @@ urlpatterns = [
     path('usuarios/cadastrar_usuario',cadastrar_usuario,name='cadastrar_usuario'),
     path('produtos/', include('produtos.urls')),
     path('servicos/', include('servicos.urls')),
-    path('agendamento/', include('agendamento.urls'))
+    path('agendamento/', include('agendamento.urls')),
+    path('pagamento/', include('pagamento.urls')),
 ]

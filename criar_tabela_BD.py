@@ -7,12 +7,13 @@ cursor = conn.cursor()
 
 # criando a tabela (schema)
 cursor.execute(
-CREATE TABLE agendamento_agendamento (
+CREATE TABLE pagamento (
         id  INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-        nome    TEXT NOT NULL,
-        dt_agendamento    TEXT NOT NULL,
-        hora_agendamento    TEXT NOT NULL,
-        servico_prestado TEXT NOT NULL
+        cod_servico        TEXT NOT NULL,
+        cod_cliente        TEXT NOT NULL,
+        valor_pagamento    TEXT NOT NULL,
+        dt_pagamento       TEXT NOT NULL,
+        status             TEXT NOT NULL
 );
 )
 

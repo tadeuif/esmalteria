@@ -1,0 +1,13 @@
+{% extends 'basePagamento.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container">
+    <h1>Deseja excluir o pagamento {{ pagamento.id_pagamento }}?</h1>
+    <form action="" method="post"> {% csrf_token %}
+        <div class="text-center">
+        <input type="submit" class="btn btn-danger" value="Excluir">
+        <a href="{% url 'lista_de_pagamentos' %}" class="btn btn-warning">Voltar</a>
+    </div>
+    </form>
+</div>
+{% endblock %}

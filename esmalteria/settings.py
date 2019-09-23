@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'produtos',
     'servicos',
     'agendamento',
+    'pagamento',
     'bootstrap4',
 ]
 
