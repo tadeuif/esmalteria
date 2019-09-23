@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 {% block head %}
   {{block.super}}
+
+  {% block css %}
+    {{block.super}}
+  {% endblock css %}
 {% endblock head %}
 
 {% block body %}
@@ -16,10 +20,10 @@
         <span></span>
     </div>
     <ul id="lista">
-      <li><a href="{% url 'cadastrar_usuario' %}">Cadastrar Usuário</a></li>
-      <li><a href="{% url 'lista_de_clientes' %}">Cadastrar Clientes</a></li> 
-      <li><a href="{% url 'lista_de_produtos' %}">Cadastrar Produtos</a></li>
-      <li><a href="{% url 'lista_de_servicos' %}">Cadastrar Serviços</a></li>
+      <li><a href="{% url 'cadastrar_usuario' %}">Usuário</a></li>
+      <li><a href="{% url 'lista_de_clientes' %}">Clientes</a></li> 
+      <li><a href="{% url 'lista_de_produtos' %}">Produtos</a></li>
+      <li><a href="{% url 'lista_de_servicos' %}">Serviços</a></li>
       <li><a href="{% url 'lista_de_agendamento' %}">Agendamentos</a></li>
       <li id = "teste">Relatórios</li>
       <li>Backup</li>
@@ -29,7 +33,33 @@
 
     <button onclick="mudaText()">Mudar RELATORIOS PARA TESTE</button>
 </div>
-  
+{%block content%}
+<!--
+<div class="container">
+    <div class="text-center">
+    <h1 class="text-warning">Aniversariantes</h1>
+    </div>
+    <table class="table table-head">
+        <thead>
+            <tr>
+                <th>Nome</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cliente in clientes %}
+            <tr>
+                <td>{{ cliente.nome }}</td>
+            </tr>
+            {% endfor %}
+            
+        </tbody>
+        
+    </table>
+    {{ clientes }}
+    </div>
+-->
+{%endblock content%}
+
 {% else %}
   <p>You are not logged in</p>
   <a href="{% url 'login' %}">login</a>
