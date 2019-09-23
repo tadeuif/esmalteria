@@ -4,9 +4,10 @@
 {% endblock head %}
 
 {% block body %}
-  
+
 {% if user.is_authenticated %}
   Hi {{ user.username }}!
+  <h1>{{ mydate|date }}</h1>  
 <br></br>
   
 <div id= "sidebar">
@@ -29,7 +30,7 @@
 
     <!--<button onclick="mudaText()">Mudar RELATORIOS PARA TESTE</button> -->
 </div>
-{%block content%}
+{% block content %}
 
 <div class="container">
     <div class="text-right" >
@@ -45,9 +46,15 @@
               </thead>
               <tbody>
                   {% for cliente in clientes %}
-                  <tr>
-                      <td>teste</td>
-                  </tr>
+                    {% if cliente.dt_nascimento == mydate|date %}
+                    <tr>
+                        <td>{{cliente.nome}}</td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                      <td>Sem aniversariantes</td>
+                    </tr>
+                    {% endif %}
                   {% endfor %}
                   
               </tbody>
@@ -55,7 +62,7 @@
     </div></div> 
     </div>
 
-{%endblock content%}
+{% endblock content %}
 
 {% else %}
   <p>You are not logged in</p>
