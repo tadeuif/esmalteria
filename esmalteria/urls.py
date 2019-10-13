@@ -18,7 +18,7 @@ from django.urls import path, include
 #from core.views import *
 from django.conf.urls import url
 from django.views.generic.base import TemplateView
-from core.views import login_redirect
+from core.views import login_redirect, home
 from usuarios.views import cadastrar, cadastrar_usuario
 from produtos import views
 from clientes import views
@@ -31,7 +31,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
     #path('', index, name="login"),
-    path('home/', TemplateView.as_view(template_name='home.html'), name='home'),
+    path('home/', home, name='home'),
     path('clientes/',include('clientes.urls')), #ENDEREÇAR O PATH PARA LINK CLIENTES
     path('usuarios/',include('usuarios.urls')),
     path('usuarios/cadastrar_usuario',cadastrar_usuario,name='cadastrar_usuario'),

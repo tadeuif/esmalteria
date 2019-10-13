@@ -4,9 +4,10 @@
 {% endblock head %}
 
 {% block body %}
-  
+
 {% if user.is_authenticated %}
-  Hi {{ user.username }}!
+  Olá, {{ user.username|title }}!
+  <h1>{{ mydate|date }}</h1>  
 <br></br>
   
 <div id= "sidebar">
@@ -16,10 +17,10 @@
         <span></span>
     </div>
     <ul id="lista">
-      <li><a href="{% url 'cadastrar_usuario' %}">Cadastrar Usuário</a></li>
-      <li><a href="{% url 'lista_de_clientes' %}">Cadastrar Clientes</a></li> 
-      <li><a href="{% url 'lista_de_produtos' %}">Cadastrar Produtos</a></li>
-      <li><a href="{% url 'lista_de_servicos' %}">Cadastrar Serviços</a></li>
+      <li><a href="{% url 'cadastrar_usuario' %}">Usuário</a></li>
+      <li><a href="{% url 'lista_de_clientes' %}">Clientes</a></li> 
+      <li><a href="{% url 'lista_de_produtos' %}">Produtos</a></li>
+      <li><a href="{% url 'lista_de_servicos' %}">Serviços</a></li>
       <li><a href="{% url 'lista_de_agendamento' %}">Agendamentos</a></li>
       <li id = "teste">Relatórios</li>
       <li>Backup</li>
@@ -27,9 +28,39 @@
       <li><a href="{% url 'logout' %}">Sair</a></li> 
     </ul>
 
-    <button onclick="mudaText()">Mudar RELATORIOS PARA TESTE</button>
+    <!--<button onclick="mudaText()">Mudar RELATORIOS PARA TESTE</button> -->
 </div>
-  
+{% block content %}
+
+<div class="container">
+    <div class="text-right" >
+    <h1>Aniversariantes</h1>
+    </div>
+    <div class="row justify-content-end">
+        <div class="col-4">
+          <table class="table table-head">
+              <thead>
+                  <tr>
+                      <th class="text-left">Nome</th>
+                      <th class="text-left">E-mail</th>
+                      <th class="text-left">Telefone</th>
+                  </tr>
+              </thead>
+              <tbody>
+                    {% for cliente in clientes %}
+                    <tr>
+                      <td>{{cliente.nome}}</td>
+                      <td>{{cliente.email}}</td>
+                      <td>{{cliente.celular}}</td>
+                    </tr>
+                    {%endfor%}
+              </tbody>
+          </table>
+    </div></div> 
+    </div>
+
+{% endblock content %}
+
 {% else %}
   <p>You are not logged in</p>
   <a href="{% url 'login' %}">login</a>
