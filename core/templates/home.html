@@ -6,7 +6,7 @@
 {% block body %}
 
 {% if user.is_authenticated %}
-  Hi {{ user.username }}!
+  Olá, {{ user.username|title }}!
   <h1>{{ mydate|date }}</h1>  
 <br></br>
   
@@ -42,21 +42,18 @@
               <thead>
                   <tr>
                       <th class="text-left">Nome</th>
+                      <th class="text-left">E-mail</th>
+                      <th class="text-left">Telefone</th>
                   </tr>
               </thead>
               <tbody>
-                  {% for cliente in clientes %}
-                    {% if cliente.dt_nascimento == mydate|date %}
+                    {% for cliente in clientes %}
                     <tr>
-                        <td>{{cliente.nome}}</td>
+                      <td>{{cliente.nome}}</td>
+                      <td>{{cliente.email}}</td>
+                      <td>{{cliente.celular}}</td>
                     </tr>
-                    {% else %}
-                    <tr>
-                      <td>Sem aniversariantes</td>
-                    </tr>
-                    {% endif %}
-                  {% endfor %}
-                  
+                    {%endfor%}
               </tbody>
           </table>
     </div></div> 

@@ -5,6 +5,7 @@ from django.urls import reverse
 from clientes.models import Cliente
 from clientes.forms import ClienteForm
 import datetime
+from datetime import date
 
 def index(request):
     context = {
@@ -12,18 +13,13 @@ def index(request):
     }
     return render(request, "login.html", context)
 
-
-#def home(request):
-    #context = {
-        #'title': 'BEM VINDO'
-    #}
-    #return render(request, "home.html", context)
-#TENTANDO ACESSAR O BANCO(CASO DE PARA IMPORTAR, IMPORTE!)
 def home(request):
-    clientes = Cliente.objects.all().order_by('-id')
     mydate = datetime.datetime.now()
+    dia = date.today().day
+    mes = date.today().month
+    clientes2 = Cliente.objects.filter(dt_nascimento__day=dia, dt_nascimento__month=mes)
 
-    context = {'clientes':clientes, 'mydate':mydate}
+    context = {'clientes':clientes2, 'mydate':mydate}
     return render(request,"home.html",context)
 
 def teste(request):
