@@ -1,0 +1,45 @@
+{% extends 'baseUsuario.html' %}
+
+{% block content %}
+
+<div class="container">
+<div class="text-center">
+<h1 class="text-warning">Cadastro de Usuários</h1>
+</div>
+<table class="table table-head">
+    <thead>
+        <tr>
+            <th>Usuário</th>
+            <th>Primeiro nome</th>
+            <th>Último nome</th>
+            <th>Endereço de email</th>
+            <th>SuperUsuário</th>
+            {% if user.is_authenticated %}
+            <th>Opções</th>
+            <th></th>
+            {% endif %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for usuarios in auth_user %}
+        <tr>
+            <td>{{ auth_user.username }}</td>
+            <td>{{ auth_user.first_name }}</td>
+            <td>{{ auth_user.last_name }}</td>
+            <td>{{ auth_user.email }}</td>
+            <td>{{ auth_user.is_superuser }}</td>
+
+            {% if user.is_authenticated %}
+            <td><a href="servicos/editar_servico/{{ auth_user.id }}" class="btn btn-warning">Editar</a></td>
+            <td><a href="servicos/remover_servico/{{ auth_user.id }}" class="btn btn-danger">Excluir</a></td>
+            {% endif %}
+
+        </tr>
+        {% endfor %}
+    
+    </tbody>
+
+</table>
+{{ servicos }}
+</div>
+{% endblock content %}

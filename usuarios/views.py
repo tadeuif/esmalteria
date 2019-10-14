@@ -24,6 +24,8 @@ def cadastrar_usuario(request):
 
     return render(request, 'usuarios/cadastrar_usuario.html', {'form': form}) #TESTE        
    
-        
+def lista_de_usuarios(request):
+    usuarios = RegistrationForm.objects.all().orderby('-id')
+    return render(request, 'usuarios/lista_de_usuarios.html', usuarios)        
 
 

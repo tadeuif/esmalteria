@@ -8,7 +8,7 @@
 {% if user.is_authenticated %}
   Olá, {{ user.username|title }}!
   <h1>{{ mydate|date }}</h1>  
-<br></br>
+
   
 <div id= "sidebar">
     <div class="toggle-btn" onclick="toggleSidebar()">
@@ -27,8 +27,6 @@
       <li>Sistema</li>
       <li><a href="{% url 'logout' %}">Sair</a></li> 
     </ul>
-
-    <!--<button onclick="mudaText()">Mudar RELATORIOS PARA TESTE</button> -->
 </div>
 {% block content %}
 
