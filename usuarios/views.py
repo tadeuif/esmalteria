@@ -3,6 +3,8 @@ from usuarios.forms import RegistrationForm
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
+from django.contrib.auth.models import User
+import django.db
 
 def cadastrar(request):
     return render(request, 'usuarios/cadastrar_usuario.html')
@@ -22,10 +24,11 @@ def cadastrar_usuario(request):
         messages.success(request,"Usuário adicionado com sucesso")
         return HttpResponseRedirect('cadastrar_usuario', {'form': form})
 
-    return render(request, 'usuarios/cadastrar_usuario.html', {'form': form}) #TESTE        
+    return render(request, 'usuarios/cadastrar_usuario.html', {'form': form})      
    
 def lista_de_usuarios(request):
-    usuarios = RegistrationForm.objects.all().orderby('-id')
+    usuarios_query = User.objects.all()
+    usuarios = {'usuarios': usuarios_query}
     return render(request, 'usuarios/lista_de_usuarios.html', usuarios)        
 
 

@@ -21,17 +21,17 @@
         </tr>
     </thead>
     <tbody>
-        {% for usuarios in auth_user %}
+        {% for usuarios in usuarios %}
         <tr>
-            <td>{{ auth_user.username }}</td>
-            <td>{{ auth_user.first_name }}</td>
-            <td>{{ auth_user.last_name }}</td>
-            <td>{{ auth_user.email }}</td>
-            <td>{{ auth_user.is_superuser }}</td>
+            <td>{{ usuarios.username }}</td>
+            <td>{{ usuarios.first_name }}</td>
+            <td>{{ usuarios.last_name }}</td>
+            <td>{{ usuarios.email }}</td>
+            <td>{{ usuarios.is_superuser }}</td>
 
             {% if user.is_authenticated %}
-            <td><a href="servicos/editar_servico/{{ auth_user.id }}" class="btn btn-warning">Editar</a></td>
-            <td><a href="servicos/remover_servico/{{ auth_user.id }}" class="btn btn-danger">Excluir</a></td>
+            <!--<td><a href="editar_usuario/{{ usuarios.id }}" class="btn btn-warning">Editar</a></td>
+            <td><a href="remover_usuario/{{ usuarios.id }}" class="btn btn-danger">Excluir</a></td>-->
             {% endif %}
 
         </tr>
@@ -40,6 +40,6 @@
     </tbody>
 
 </table>
-{{ servicos }}
+<!--{{ usuarios }} QUERYSET-->
 </div>
 {% endblock content %}
