@@ -19,8 +19,6 @@
   </div> 
 </div>
   
-
-
 <div id= "sidebar">
     <div class="toggle-btn" onclick="toggleSidebar()">
         <span></span>
@@ -42,31 +40,52 @@
 {% block content %}
 
 <div class="container-fluid">
-    <div class="text-right" >
-    <h1>Aniversariantes</h1>
-    </div>
-    <div class="row justify-content-end">
-        <div class="col-4">
-          <table class="table table-head">
-              <thead>
-                  <tr>
-                      <th class="text-left">Nome</th>
-                      <th class="text-left">E-mail</th>
-                      <th class="text-left">Telefone</th>
-                  </tr>
-              </thead>
-              <tbody>
-                    {% for cliente in clientes %}
-                    <tr>
-                      <td>{{cliente.nome}}</td>
-                      <td>{{cliente.email}}</td>
-                      <td>{{cliente.celular}}</td>
-                    </tr>
-                    {%endfor%}
-              </tbody>
+  <div class="row justify-content-end">      
+    <div class="col-4">
+      <h1>Agendamentos de hoje</h1>
+        <table class="table table-head">
+          <thead>
+            <tr>
+              <th class="text-center">Nome</th>
+              <th class="text-center">Horário</th>
+              <th class="text-center">Serviço</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for agendamento in agendamento %}
+              <tr>
+                <td class="text-center">{{agendamento.nome}}</td>
+                <td class="text-center">{{agendamento.hora_agendamento}}</td>
+                <td class="text-center">{{agendamento.servico_prestado}}</td>
+              </tr>
+            {%endfor%}
+          </tbody>
           </table>
-    </div></div> 
     </div>
+      <div class="col-4">
+        <h1>Aniversariantes</h1>
+          <table class="table table-head">
+            <thead>
+              <tr>
+                <th class="text-left">Nome</th>
+                <th class="text-left">E-mail</th>
+                <th class="text-left">Telefone</th>
+              </tr>
+              </thead>
+                <tbody>
+                  {% for cliente in clientes %}
+                  <tr>
+                    <td>{{cliente.nome}}</td>
+                    <td>{{cliente.email}}</td>
+                    <td>{{cliente.celular}}</td>
+                  </tr>
+                  {%endfor%}
+                </tbody>
+          </table>
+      </div>
+    </div> 
+  </div> 
+</div>
 
 {% endblock content %}
 

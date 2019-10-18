@@ -19,7 +19,7 @@ def home(request):
     dia = date.today().day
     mes = date.today().month
     clientes2 = Cliente.objects.filter(dt_nascimento__day=dia, dt_nascimento__month=mes)
-    agendamento = Agendamento.objects.filter(dt_nascimento__day=dia, dt_nascimento__month=mes)
+    agendamento = Agendamento.objects.filter(dt_agendamento__day=dia, dt_agendamento__month=mes)
 
     context = {'clientes':clientes2, 'mydate':mydate, 'agendamento':agendamento}
     return render(request,"home.html",context)
