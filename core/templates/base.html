@@ -4,10 +4,7 @@
   <head>
   {% load static %}
   
-  {% block logo %}
-    <h1 class="logo1">Luluzinha</h1>
-    <h4 class="logo2">ESMALTERIA</h4>
-  {% endblock logo %}
+  
   
       <title>{{ title | upper }}</title>
       <meta charset="utf-8">
@@ -17,6 +14,12 @@
       <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"/>
       <link rel="stylesheet" href="{% static 'style.css' %}"/>
       {% endblock css %}
+
+
+    {% block logo %}
+      <h1 class="logo1">Luluzinha</h1>
+      <h4 class="logo2">ESMALTERIA</h4>
+    {% endblock logo %}
 
   </head>
   {% endblock head %}
