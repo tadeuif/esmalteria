@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from django.urls import reverse
 from clientes.models import Cliente
 from clientes.forms import ClienteForm
+from agendamento.models import Agendamento
 import datetime
 from datetime import date
 
@@ -18,8 +19,9 @@ def home(request):
     dia = date.today().day
     mes = date.today().month
     clientes2 = Cliente.objects.filter(dt_nascimento__day=dia, dt_nascimento__month=mes)
+    agendamento = Agendamento.objects.filter(dt_nascimento__day=dia, dt_nascimento__month=mes)
 
-    context = {'clientes':clientes2, 'mydate':mydate}
+    context = {'clientes':clientes2, 'mydate':mydate, 'agendamento':agendamento}
     return render(request,"home.html",context)
 
 def teste(request):

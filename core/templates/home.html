@@ -6,10 +6,21 @@
 {% block body %}
 
 {% if user.is_authenticated %}
-  Olá, {{ user.username|title }}!
-  <h1>{{ mydate|date }}</h1>  
-
+<div class="container-fluid">
+  <div class="row">
+    <div class="col, text-left"> 
+      <h4>Olá, {{ user.username|title }}!</h4>
+      <h4>Seja bem vindo! </h4>  
+    </div>
+    <div class="col align-self-center, text-right">    
+      <h4>{{ mydate|date }}</h4>
+      <h4>Nailed it!</h4>
+    </div>  
+  </div> 
+</div>
   
+
+
 <div id= "sidebar">
     <div class="toggle-btn" onclick="toggleSidebar()">
         <span></span>
@@ -30,7 +41,7 @@
 </div>
 {% block content %}
 
-<div class="container">
+<div class="container-fluid">
     <div class="text-right" >
     <h1>Aniversariantes</h1>
     </div>
