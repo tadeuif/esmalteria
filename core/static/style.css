@@ -148,3 +148,7 @@ body
     background: #151719;
     margin: 5px 0px;
 }
+
+.table-rounded {
+    border-radius: 1em;
+}
