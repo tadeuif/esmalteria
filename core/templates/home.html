@@ -42,12 +42,12 @@
 <div class="container-fluid">
   <div class="row justify-content-end">      
     <div class="col-4">
-      <h1 class="text-center">Agendamentos de hoje</h1>
-        <table class="table table-bordered table-striped table-dark table-hover table-rounded">
+      <h1 class="text-center logo3">Agendamentos de hoje</h1>
+        <table class="table table-borderless table-striped table-dark table-hover table-rounded">
           <thead>
             <tr>
               <th class="text-center">Nome</th>
-              <th class="text-center">Horário</th>
+              <th id ="th_header_rows"class="text-center table-border-left-right">Horário</th>
               <th class="text-center">Serviço</th>
             </tr>
           </thead>
@@ -55,7 +55,7 @@
             {% for agendamento in agendamento %}
               <tr>
                 <td class="text-center">{{agendamento.nome}}</td>
-                <td class="text-center">{{agendamento.hora_agendamento}}</td>
+                <td id ="th_header_rows" class="text-center">{{agendamento.hora_agendamento}}</td>
                 <td class="text-center">{{agendamento.servico_prestado}}</td>
               </tr>
             {%endfor%}
@@ -63,12 +63,12 @@
         </table>
     </div>
       <div class="col-4">
-        <h1 class="text-center">Aniversariantes</h1>
-          <table class="table table-head">
+        <h1 class="text-center logo3">Aniversariantes</h1>
+          <table class="table table-borderless table-striped table-dark table-hover table-rounded">
             <thead>
               <tr>
                 <th class="text-center">Nome</th>
-                <th class="text-center">E-mail</th>
+                <th id ="th_header_rows"class="text-center table-border-left-right">E-mail</th>
                 <th class="text-center">Telefone</th>
               </tr>
               </thead>

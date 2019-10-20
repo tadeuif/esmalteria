@@ -29,39 +29,7 @@ body
     
 }
 
-#menuinit {
-    position: fixed;
-    width: 230px;
-    height: 100%;
-    background: #151719;
-    left: -230px;
-    transition: all 500ms linear;
-}
 
-#sidebar.active {
-    left: 0px;
-}
-
-#menuinit h4 h3  {
-    color:rgba(230,230,230,0.9);
-    list-style:none;
-    padding:15px 10px;
-    border-bottom: 3px solid rgba(100,100,100,0.3);
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
-
-#sidebar .toggle-btn {
-    position:absolute;
-    left:250px;
-    top:0px;
-}
-#sidebar .toggle-btn span{
-    display: block;
-    width: 30px;
-    height: 5px;
-    background: #151719;
-    margin: 5px 0px;
-}
 
 .texto h1
 {
@@ -141,4 +109,22 @@ body
     color: orange;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     margin: 5px 0 0 180px;
+}
+
+.logo3 {
+    display: block;
+    color: white;
+    font-size: 40px;
+    font-family: 'Lobster', cursive;  
+}
+
+.table-rounded {
+    border-radius: 0.5em;
+}
+
+#th_header_rows{
+    
+    border-style: double;
+    border-left-width: 5px;
+    border-right-width: 5px;
 }
