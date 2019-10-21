@@ -122,6 +122,15 @@ body
     border-radius: 0.5em;
 }
 
+a:hover, a:visited, a:link, a:active {
+    text-decoration: none;
+    color: cornsilk;
+    display: block;
+}
+
+li:hover {
+    background-color:gray ;
+}
 #th_header_rows{
     
     border-style: double;
